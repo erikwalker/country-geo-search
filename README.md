@@ -1,4 +1,4 @@
-# country-geo-search
+# country-geo-search application
 An angular4 application that connects to geo-name api to get country demographic data
 
 Summary:
@@ -7,6 +7,8 @@ Summary:
 • Create custom routing to inner pages and display various pieces of demographic data 
 • Create pagination to neatly display large datasets to communicate data
 • Using geo name org countries api 
+
+## User Manual
 
 When the app starts up it takes us to a main page with flags and a button that is used to load the countries.
 
