@@ -1,0 +1,49 @@
+/* Navbar */
+.nav .navbar-nav {
+  font-size: 15px;
+}
+#searchForm {
+  margin-right: 100px;
+}
+@media (max-width: 1200px) {
+  #searchForm {
+    display: none;
+  }
+}
+.filterBy {
+  margin-bottom: 10px;
+  margin-left: 5px;
+}
+.flag {
+  margin-top: 10px;
+}
+.icon-fp{
+    font-size: 40px;
+    line-height: 40px;
+    width: 50px;
+    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.icon-fp [class*='icon-']{
+  height: 40px;
+  width: 40px;
+  display: inline-block;
+  text-align: center;
+  vertical-align: baseline;
+}
+/* Spinner */
+.loader {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: 16px solid #E1E9E9;
+    border-top: 16px solid #166AB8;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

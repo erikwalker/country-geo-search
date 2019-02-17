@@ -1,0 +1,91 @@
+<div class="container">
+       <!-- Jumbotron here -->
+      <div class="jumbotron">
+        <p>This site provides information about countries and their capitals.</p><br>
+      <table>
+        <tr>
+          <td class="icon-fp">
+            <i class="fa fa-flag fa-5x"></i>
+          </td>
+          <td class="icon-fp">
+            <i class="fa fa-flag-checkered fa-5x"></i>
+          </td>
+          <td class="icon-fp">
+            <i class="fa fa-flag-o fa-5x"></i>
+          </td>
+        </tr>
+      </table><br>
+      <p>Data is provided by the <a href="http://www.geonames.org/login" target="_blank">Geonames API</a></p>
+    </div>
+
+    <button type="button"
+                 class="btn btn-info btn-lg"
+                 (click)="loadCountries()">Load Countries</button>
+
+    <!-- Loader -->
+    <div class="loader" *ngIf="isLoading"></div>
+
+    <!-- Error Message -->
+    <div class="alert alert-danger" *ngIf="errorMessage">{{ errorMessage }}</div>
+
+    <div class="table-responsive" *ngIf="countries" style="margin-top: 10px">
+      <div class="row filterBy">
+        <button class="btn btn-default"
+                     [class.active]="filterBy==='all'"
+                     (click)="filterBy('all')">
+             All Countries
+        </button>
+        <button class="btn btn-default"
+                     [class.active]="filterBy==='europe'"
+                     (click)="filterBy('europe')">
+             European Countries
+        </button>
+        <button class="btn btn-default"
+                     [class.active]="filterBy==='pop'"
+                     (click)="filterBy('pop')">
+             Population > 1M
+        </button>
+      </div>
+    <table class="table table-bordered table-striped table-hover table-fixed-header">
+      <thead class="header">
+        <tr>
+          <th class="text-center">
+          <a href="#" (click)="sortType('name')" [class.active]="sortBy === 'name'">
+              Name
+            </a>
+          </th>
+          <th class="text-center">
+            Country Code
+              </th>
+          <th class="text-center">
+            Capital
+          </th>
+          <th class="text-center">
+            Area (km2)
+          </th>
+          <th class="text-center">
+            <a href="#" (click)="sortType('pop')" [class.active]="sortBy === 'pop'">
+            Population
+            </a>
+          </th>
+          <th class="text-center">
+          Continent
+          </th>
+        </tr>
+      </thead>
+      <tbody class="searchable">
+          <tr *ngFor="let country of countries">
+          <td><a [routerLink]="['/country', country.countryCode]">
+          {{ country.countryName }}
+          </a>
+          </td>
+          <td>{{ country.countryCode }}</td>
+          <td>{{ country.capital }}</td>
+          <td>{{ country.areaInSqKm | number:0 }}</td>
+          <td>{{ country.population | number:0 }}</td>
+          <td>{{ country.continentName }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

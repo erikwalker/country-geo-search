@@ -1,0 +1,47 @@
+<br>
+<div class="container text-center">
+  <div class="col-md-12">
+    <div class="col-md-4">
+      <!-- Loader -->
+    <div class="loader" *ngIf="isLoading"></div>
+
+    <!-- Error Message -->
+    <div class="alert alert-danger" *ngIf="errorMessage">{{ errorMessage }}</div>
+
+            <table class="table">
+                <tr>
+                    <h2 class="text-success">{{ country?.countryName }}</h2>
+                </tr>
+                <tr>
+                    <td class="col-xs-6 text-right"><strong>Total Population:</strong></td>
+                    <td class="col-xs-6 text-left">{{ country?.population | number:0 }}</td>
+                </tr>
+                <tr>
+                    <td class="text-right"><strong>Area:</strong></td>
+                    <td class="text-left">{{ country?.areaInSqKm | number:0 }} km<sup>2</sup></td>
+                </tr>
+                <tr>
+                    <td class="text-right"><strong>Capital:</strong></td>
+                    <td class="text-left">{{ country?.capital }}</td>
+                </tr>
+                <tr>
+                    <td class="text-right"><strong>Continent:</strong></td>
+                    <td class="text-left">{{ country?.continentName }}</td>
+                </tr>
+            </table>
+        </div>
+            <div class="col-md-7 col-md-offset-1">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3>{{ country?.countryName }} Map</h3>
+                </div>
+                <div class="panel-body">
+                    <a target="_blank" href="http://www.google.com/maps/place/{{country?.countryName}}">
+                      <img src="http://www.geonames.org/img/country/250/{{country?.countryCode}}.png"></a>
+                      <br>
+                    <img class="flag" src="http://www.geonames.org/flags/x/{{country?.countryCode | lowercase}}.gif">
+                 </div>
+              </div>
+            </div>
+        </div>
+    </div>
